@@ -1,0 +1,10 @@
+name: TestPlugin
+main: com.anson.mc.main.TestPlugin
+version: 0.0.1
+description: This is a test Plugin
+author: Anson
+commands:
+  hello:
+    description: Say Hello
+    aliases: [helloworld, hw]
+    usage: "Usage: /hello"

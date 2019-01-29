@@ -19,14 +19,16 @@ public class TestPlugin extends JavaPlugin {
         plugin = this;
         ConsoleCommandSender sender = this.getServer().getConsoleSender();
         LangManager.getInstance(this).loadLang();
+        ConfigManager.getInstance(this).loadConfig();
         sender.sendMessage(ChatColor.GREEN + "Plugin Successfully loaded !");
         this.getLogger().info("Test Plugin Successfully Enable !");
         this.getCommand("hello").setExecutor(new HelloCommandExecutor());
         this.getCommand("family").setExecutor(new FamilyCommandExecutor());
-        this.getCommand("test-reload").setExecutor(new ReloadCommandExecutor());
+        this.getCommand("utility").setExecutor(new UtilityCommandExecutor());
+        this.getCommand("tpl-reload").setExecutor(new ReloadCommandExecutor());
         this.getServer().getPluginManager().registerEvents(new JoinListener(), this);
         this.getServer().getPluginManager().registerEvents(new ChatListener(), this);
-        this.getCommand("utility").setExecutor(new UtilityCommandExecutor());
+
     }
 
     @Override

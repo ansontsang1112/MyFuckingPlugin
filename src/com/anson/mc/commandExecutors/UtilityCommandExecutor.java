@@ -16,15 +16,35 @@ public class UtilityCommandExecutor implements CommandExecutor {
 
         if (strings.length == 0) {
             commandSender.sendMessage(LangManager.pluginPrefix + LangManager.litArg);
+            return false;
         }
 
         Player player = (Player) commandSender;
 
         switch (strings[0]) {
+            case "speed":
+                if (strings.length == 0) {
+                    player.sendMessage(LangManager.pluginPrefix + LangManager.litArg);
+                    return false;
+                }
+                if (strings[1].equalsIgnoreCase("fly")) {
+                    return Utilities.flySpeed(player, strings);
+                }
+                if (strings[1].equalsIgnoreCase("walk")) {
+                    return Utilities.walkSpeed(player, strings);
+                }
+                player.sendMessage(LangManager.pluginPrefix + LangManager.wrongArg);
+                break;
             case "fly":
-                return Utilities.fly(player);
+                if (strings.length == 1) {
+                    return Utilities.fly(player);
+                }
+                player.sendMessage(LangManager.pluginPrefix + LangManager.wrongArg);
+                return false;
             case "time":
                 return Utilities.time(player, strings);
+            case "fuck":
+                return Utilities.fuck(player);
         }
 
         return false;

@@ -1,5 +1,5 @@
 #Prefix
-prefix: "&b[Test Plugin] // "
+prefix: "&b[Test Plugin] // &f"
 #Lang. Items
 join-msg: "&b%player% joined the fucking game."
 no-player: "&cYou are not player !! Fuck Off !!"

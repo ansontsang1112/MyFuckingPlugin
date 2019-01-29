@@ -10,5 +10,5 @@ commands:
     usage: "Usage: /hello"
   family:
     description: family fucker
-  test-reload:
+  tpl-reload:
   utility:

@@ -1,5 +1,6 @@
 package com.anson.mc.commandExecutors;
 
+import com.anson.mc.main.ConfigManager;
 import com.anson.mc.main.LangManager;
 import com.anson.mc.main.TestPlugin;
 import org.bukkit.ChatColor;
@@ -25,9 +26,11 @@ public class ReloadCommandExecutor implements CommandExecutor {
         switch (strings[0]) {
             case "lang":
                 LangManager.getInstance(TestPlugin.plugin).reloadLang();
-                sender.sendMessage(LangManager.pluginPrefix + ChatColor.GREEN + "Lang.yml Reload Successfully");
+                sender.sendMessage(LangManager.pluginPrefix + ChatColor.GREEN + "lang.yml Reload Successfully");
                 break;
             case "config":
+                ConfigManager.getInstance(TestPlugin.plugin).reloadConfig();
+                sender.sendMessage(LangManager.pluginPrefix + ChatColor.GREEN + "config.yml Reload Successfully");
                 break;
             default:
                 sender.sendMessage(LangManager.pluginPrefix + LangManager.wrongArg);

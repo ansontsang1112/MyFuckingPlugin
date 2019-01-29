@@ -1,25 +1,16 @@
 package com.anson.mc.commandExecutors;
 
 import com.anson.mc.main.LangManager;
+import com.anson.mc.main.TestPlugin;
+import org.bukkit.ChatColor;
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandExecutor;
 import org.bukkit.command.CommandSender;
-import org.bukkit.entity.Player;
 
-public class FamilyCommandExecutor implements CommandExecutor {
+public class ReloadCommandExecutor implements CommandExecutor {
+
     @Override
     public boolean onCommand(CommandSender sender, Command command, String s, String[] strings) {
-        String str;
-
-        if (!(sender instanceof Player)) {
-            sender.sendMessage(LangManager.noPlayer);
-            return false;
-        }
-
-        if (!sender.hasPermission("family.test")) {
-            sender.sendMessage(LangManager.noPerm);
-            return false;
-        }
 
         if (strings.length == 0) {
             sender.sendMessage(LangManager.pluginPrefix + LangManager.litArg);
@@ -27,24 +18,21 @@ public class FamilyCommandExecutor implements CommandExecutor {
         }
 
         if (strings.length > 1) {
-            sender.sendMessage(LangManager.pluginPrefix + LangManager.manyArg);
+            sender.sendMessage(LangManager.pluginPrefix + LangManager.wrongArg);
             return false;
         }
 
         switch (strings[0]) {
-            case "mother":
-                str = "Mother";
+            case "lang":
+                LangManager.getInstance(TestPlugin.plugin).reloadLang();
+                sender.sendMessage(LangManager.pluginPrefix + ChatColor.GREEN + "Lang.yml Reload Successfully");
                 break;
-            case "father":
-                str = "Father";
+            case "config":
                 break;
             default:
                 sender.sendMessage(LangManager.pluginPrefix + LangManager.wrongArg);
-                return false;
+                break;
         }
-
-        sender.sendMessage(str + " said, \"" + LangManager.fuckMsg + (sender).getName() + "\"");
-
         return true;
     }
 }

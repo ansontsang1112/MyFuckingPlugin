@@ -8,3 +8,7 @@ commands:
     description: Say Hello
     aliases: [helloworld, hw]
     usage: "Usage: /hello"
+  family:
+    description: family fucker
+  test-reload:
+  utility:

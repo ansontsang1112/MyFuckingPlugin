@@ -1,0 +1,13 @@
+#Prefix
+prefix: "&b[Test Plugin] // "
+#Lang. Items
+join-msg: "&b%player% joined the fucking game."
+no-player: "&cYou are not player !! Fuck Off !!"
+no-perm: "&cYou do not have enough permission"
+little-arg: "&cYou have too little argument"
+many-arg: "&cToo many argument"
+wrong-arg: "&cWrong argument !!"
+fuck-msg: "Fuck you sucker ! Your face just like on9,"
+utility:
+  fly-msg: "You are flying !!"
+  nofly-msg: "You are not flying !!"
